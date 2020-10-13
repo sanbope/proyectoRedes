@@ -3,15 +3,14 @@ package client;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Client
 {
-	public static final String SERVER = "192.168.0.106";
-	public static final int PORT = 2000;
+	public final String SERVER;
+	public final int PORT;
 
 	private Socket clientSideSocket;
 	private ObjectOutputStream writer;
@@ -19,9 +18,10 @@ public class Client
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 	
-	public Client()
+	public Client(String ip, int port)
 	{
-
+		this.SERVER = ip;
+		this.PORT = port;
 	}
 
 	public void start()

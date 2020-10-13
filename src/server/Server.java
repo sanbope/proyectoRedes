@@ -9,18 +9,19 @@ import java.util.ArrayList;
 
 public class Server
 {
-	public static final int PORT = 2000;
+	public final int PORT;
 
 	private ServerSocket listener;
 	private Socket serverSideSocket;
 	private ObjectOutputStream writer;
 	private ObjectInputStream reader;
 
-	public Server()
+	public Server(int port)
 	{
-
+		this.PORT = port;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void start()
 	{
 		try
